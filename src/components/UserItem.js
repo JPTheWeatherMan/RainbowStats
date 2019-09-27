@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import {
   Card,
-  CardHeader,
   CardContent,
   Typography
 } from '../../node_modules/@material-ui/core';

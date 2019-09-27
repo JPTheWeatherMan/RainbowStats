@@ -13,18 +13,23 @@ const R6State = props => {
 
   const [state, dispatch] = useReducer(R6Reducer, initialState);
 
-  // Search all users on Uplay
-  const searchUsers = async text => {
+  // Search users with username and platform
+  const searchUsers = async (username, platform) => {
     setLoading();
 
     const res = await axios.get(
-      `https://r6tab.com/api/search.php?platform=uplay&search=${text}`
+      `https://r6tab.com/api/search.php?platform=${platform}&search=${username}`
     );
 
-    dispatch({
-      type: SEARCH_USERS,
-      payload: res.data.results
-    });
+    // Need to set up alert system so that loading doesnt go on forever
+    if (res.data.totalresults === 0) {
+      console.log('search went wrong');
+    } else {
+      dispatch({
+        type: SEARCH_USERS,
+        payload: res.data.results
+      });
+    }
   };
 
   // Get single user with player id

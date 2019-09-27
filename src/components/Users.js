@@ -17,7 +17,7 @@ const Users = () => {
       // placeholder
       <Card>
         <CardContent>
-          <Typography>You gay</Typography>
+          <Typography>loading</Typography>
         </CardContent>
       </Card>
     );
