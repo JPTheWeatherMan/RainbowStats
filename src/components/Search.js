@@ -29,7 +29,7 @@ const Search = () => {
     } else {
       r6Context.searchUsers(username, platform);
       setUsername('');
-      setPlatform('uplay');
+      setPlatform({ platform });
     }
   };
 
@@ -55,7 +55,7 @@ const Search = () => {
         <FormControl component='fieldset'>
           <FormLabel component='legend'>Platform</FormLabel>
           <RadioGroup
-            defaultValue='uplay'
+            defaultValue={platform}
             aria-label='platform'
             name='platform-radios'
             row={true}
@@ -71,7 +71,7 @@ const Search = () => {
               value='xbl'
               platform={platform}
               control={<Radio />}
-              label='XBL'
+              label='Xbox Live'
             />
             <FormControlLabel
               value='psn'

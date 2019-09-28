@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import {
+  Button,
   Card,
   CardContent,
   Typography
 } from '../../node_modules/@material-ui/core';
 
-const UserItem = ({ user: { p_name, p_level, p_platform, p_user } }) => {
+const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
   return (
     <Fragment>
       <Card>
@@ -18,6 +20,9 @@ const UserItem = ({ user: { p_name, p_level, p_platform, p_user } }) => {
             {p_level}
           </Typography>
           <Typography>Platform: {p_platform}</Typography>
+          <Button variant='contained' color='primary'>
+            <Link to={`/user/${p_id}`}>Details</Link>
+          </Button>
         </CardContent>
       </Card>
     </Fragment>

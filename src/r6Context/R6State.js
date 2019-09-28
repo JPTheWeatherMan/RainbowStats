@@ -40,10 +40,15 @@ const R6State = props => {
       `https://r6tab.com/api/player.php?p_id=${userid}`
     );
 
-    dispatch({
-      type: GET_USER,
-      payload: res.data
-    });
+    // Conditional for if a player was found or not
+    if (res.data.playerfound === true) {
+      dispatch({
+        type: GET_USER,
+        payload: res.data
+      });
+    } else {
+      console.log('No player found');
+    }
   };
 
   // Clear Users
