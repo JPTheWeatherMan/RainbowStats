@@ -2,21 +2,20 @@ import React, { useContext, useEffect, Fragment } from 'react';
 import R6Context from '../r6Context/R6Context';
 import { Typography, Card, CardContent } from '@material-ui/core';
 
-const UserDetails = ({ match }) => {
+const UserDetails = playerid => {
   const r6context = useContext(R6Context);
   const { user, getUser, loading } = r6context;
 
   useEffect(() => {
     async function fetchData() {
-      await getUser(match.params.playerid);
+      await getUser(playerid);
     }
     fetchData(); // eslint-disable-next-line
-  }, [match.params.playerid]); // I'm having a lot of trouble with dependency array
+  }, []); // I'm having a lot of trouble with dependency array
 
   if (loading) {
     return <div>loading</div>;
   } else {
-    console.log(user);
     return (
       <Fragment>
         <Card>

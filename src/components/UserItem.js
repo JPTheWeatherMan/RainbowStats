@@ -21,7 +21,9 @@ const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
           </Typography>
           <Typography>Platform: {p_platform}</Typography>
           <Button variant='contained' color='primary'>
-            <Link to={`/user/${p_id}`}>Details</Link>
+            <Link to={`/user/${p_id}`} p_id={p_id}>
+              Details
+            </Link>
           </Button>
         </CardContent>
       </Card>

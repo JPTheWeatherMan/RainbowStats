@@ -37,7 +37,7 @@ const R6State = props => {
     setLoading();
 
     const res = await axios.get(
-      `https://r6tab.com/api/player.php?p_id=${userid}`
+      `https://r6tab.com/api/player.php?p_id=${userid.playerid}`
     );
 
     // Conditional for if a player was found or not
@@ -47,6 +47,7 @@ const R6State = props => {
         payload: res.data
       });
     } else {
+      // Another place where i need to throw an error
       console.log('No player found');
     }
   };

@@ -1,24 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Search from './components/Search';
-import Users from './components/Users';
-import UserDetails from './components/UserDetails';
+import Home from './pages/Home';
+import UserDetailsPage from './pages/UserDetailsPage';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 import R6State from './r6Context/R6State';
 
 function App() {
   return (
-    <Router>
-      <R6State>
+    <R6State>
+      <Router>
         <Switch>
-          <Route exact path='/'>
-            <Search />
-            <Users />
-          </Route>
-          <Route exact path='/user/:playerid' component={UserDetails}></Route>
-          <Route path='/'>404</Route>
+          <Route exact path='/' component={Home} />
+          <Route path='/user/:playerid' component={UserDetailsPage} />
+          <Route exact path='/About' component={About} />
+          <Route path='/' component={NotFound} />
         </Switch>
-      </R6State>
-    </Router>
+      </Router>
+    </R6State>
   );
 }
 
