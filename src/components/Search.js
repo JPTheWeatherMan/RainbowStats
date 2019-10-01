@@ -6,11 +6,21 @@ import {
   RadioGroup,
   FormControlLabel,
   FormControl,
-  FormLabel
+  FormLabel,
+  Card,
+  CardContent
 } from '../../node_modules/@material-ui/core';
 import R6Context from '../r6Context/R6Context';
 
 const Search = () => {
+  const styles = {
+    cardStyle: {
+      width: '60%',
+      textAlign: 'center'
+    }
+  };
+
+  // Bringing in context
   const r6Context = useContext(R6Context);
 
   // Component state for user and platform
@@ -39,69 +49,71 @@ const Search = () => {
   const radioButtonOnChange = e => setPlatform(e.target.value);
 
   return (
-    <Fragment>
-      <form onSubmit={onSubmit}>
-        {/* Search Bar */}
-        <TextField
-          id='outlined-search'
-          name='text'
-          label='Search Users'
-          value={username}
-          type='text'
-          variant='outlined'
-          onChange={textFieldOnChange}
-        />
-        {/* Radio Group for platform */}
-        <FormControl component='fieldset'>
-          <FormLabel component='legend'>Platform</FormLabel>
-          <RadioGroup
-            defaultValue={platform}
-            aria-label='platform'
-            name='platform-radios'
-            row={true}
-            onChange={radioButtonOnChange}
-          >
-            <FormControlLabel
-              value='uplay'
-              platform={platform}
-              control={<Radio />}
-              label='Uplay'
-            />
-            <FormControlLabel
-              value='xbl'
-              platform={platform}
-              control={<Radio />}
-              label='Xbox Live'
-            />
-            <FormControlLabel
-              value='psn'
-              platform={platform}
-              control={<Radio />}
-              label='PSN'
-            />
-          </RadioGroup>
-        </FormControl>
-        {/* Submit Button */}
-        <Button
-          type='submit'
-          color='primary'
-          variant='contained'
-          value='search'
-        >
-          Search
-        </Button>
-        {/* Clear button -- shows when users < 0 */}
-        {r6Context.users.length > 0 && (
+    <Card style={styles.cardStyle}>
+      <CardContent>
+        <form onSubmit={onSubmit}>
+          {/* Search Bar */}
+          <TextField
+            id='outlined-search'
+            name='text'
+            label='Search Users'
+            value={username}
+            type='text'
+            variant='outlined'
+            onChange={textFieldOnChange}
+          />
+          {/* Radio Group for platform */}
+          <FormControl component='fieldset'>
+            <FormLabel component='legend'>Platform</FormLabel>
+            <RadioGroup
+              defaultValue={platform}
+              aria-label='platform'
+              name='platform-radios'
+              row={true}
+              onChange={radioButtonOnChange}
+            >
+              <FormControlLabel
+                value='uplay'
+                platform={platform}
+                control={<Radio />}
+                label='Uplay'
+              />
+              <FormControlLabel
+                value='xbl'
+                platform={platform}
+                control={<Radio />}
+                label='Xbox Live'
+              />
+              <FormControlLabel
+                value='psn'
+                platform={platform}
+                control={<Radio />}
+                label='PSN'
+              />
+            </RadioGroup>
+          </FormControl>
+          {/* Submit Button */}
           <Button
+            type='submit'
             color='primary'
             variant='contained'
-            onClick={r6Context.clearUsers}
+            value='search'
           >
-            Clear
+            Search
           </Button>
-        )}
-      </form>
-    </Fragment>
+          {/* Clear button -- shows when users < 0 */}
+          {r6Context.users.length > 0 && (
+            <Button
+              color='primary'
+              variant='contained'
+              onClick={r6Context.clearUsers}
+            >
+              Clear
+            </Button>
+          )}
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -16,6 +16,7 @@ const UserDetails = playerid => {
   if (loading) {
     return <div>loading</div>;
   } else {
+    console.log(user);
     return (
       <Fragment>
         <Card>
