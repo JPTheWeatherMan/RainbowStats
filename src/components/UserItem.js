@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -9,25 +9,23 @@ import {
 
 const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
   return (
-    <Fragment>
-      <Card>
-        <CardHeader-title>
-          <Typography>{p_name}</Typography>
-        </CardHeader-title>
-        <CardContent>
-          <Typography>
-            Level:
-            {p_level}
-          </Typography>
-          <Typography>Platform: {p_platform}</Typography>
-          <Button variant='contained' color='primary'>
-            <Link to={`/user/${p_id}`} p_id={p_id}>
-              Details
-            </Link>
-          </Button>
-        </CardContent>
-      </Card>
-    </Fragment>
+    <Card>
+      <CardHeader-title>
+        <Typography>{p_name}</Typography>
+      </CardHeader-title>
+      <CardContent>
+        <Typography>
+          Level:
+          {p_level}
+        </Typography>
+        <Typography>Platform: {p_platform}</Typography>
+        <Button variant='contained' color='primary'>
+          <Link to={`/user/${p_id}`} p_id={p_id}>
+            Details
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 

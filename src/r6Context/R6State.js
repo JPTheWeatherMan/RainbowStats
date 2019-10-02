@@ -21,9 +21,9 @@ const R6State = props => {
       `https://r6tab.com/api/search.php?platform=${platform}&search=${username}`
     );
 
-    // Need to set up alert system so that loading doesnt go on forever
+    // Conditional for if matching players were found
     if (res.data.totalresults === 0) {
-      console.log('search went wrong');
+      console.log('No players found');
     } else {
       dispatch({
         type: SEARCH_USERS,

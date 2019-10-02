@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   Card,
   CardContent,
@@ -8,6 +8,14 @@ import UserItem from './UserItem';
 import R6Context from '../r6Context/R6Context';
 
 const Users = () => {
+  const styles = {
+    userItemStyle: {
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap'
+    }
+  };
+
   const r6Context = useContext(R6Context);
 
   const { loading, users } = r6Context;
@@ -23,11 +31,11 @@ const Users = () => {
     );
   } else {
     return (
-      <Fragment>
+      <Card style={styles.userItemStyle}>
         {users.map(user => (
           <UserItem key={user.p_id} user={user} />
         ))}
-      </Fragment>
+      </Card>
     );
   }
 };

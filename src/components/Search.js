@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   TextField,
   Button,
@@ -16,6 +16,7 @@ const Search = () => {
   const styles = {
     cardStyle: {
       width: '60%',
+      margin: '0 auto',
       textAlign: 'center'
     }
   };
@@ -39,7 +40,7 @@ const Search = () => {
     } else {
       r6Context.searchUsers(username, platform);
       setUsername('');
-      setPlatform({ platform });
+      setPlatform(platform);
     }
   };
 
@@ -54,44 +55,43 @@ const Search = () => {
         <form onSubmit={onSubmit}>
           {/* Search Bar */}
           <TextField
-            id='outlined-search'
-            name='text'
             label='Search Users'
             value={username}
-            type='text'
             variant='outlined'
             onChange={textFieldOnChange}
           />
           {/* Radio Group for platform */}
-          <FormControl component='fieldset'>
-            <FormLabel component='legend'>Platform</FormLabel>
-            <RadioGroup
-              defaultValue={platform}
-              aria-label='platform'
-              name='platform-radios'
-              row={true}
-              onChange={radioButtonOnChange}
-            >
-              <FormControlLabel
-                value='uplay'
-                platform={platform}
-                control={<Radio />}
-                label='Uplay'
-              />
-              <FormControlLabel
-                value='xbl'
-                platform={platform}
-                control={<Radio />}
-                label='Xbox Live'
-              />
-              <FormControlLabel
-                value='psn'
-                platform={platform}
-                control={<Radio />}
-                label='PSN'
-              />
-            </RadioGroup>
-          </FormControl>
+          <CardContent>
+            <FormControl component='fieldset'>
+              <FormLabel>Platform</FormLabel>
+              <RadioGroup
+                defaultValue={platform}
+                aria-label='platform'
+                name='platform-radios'
+                row={true}
+                onChange={radioButtonOnChange}
+              >
+                <FormControlLabel
+                  value='uplay'
+                  platform={platform}
+                  control={<Radio />}
+                  label='Uplay'
+                />
+                <FormControlLabel
+                  value='xbl'
+                  platform={platform}
+                  control={<Radio />}
+                  label='Xbox Live'
+                />
+                <FormControlLabel
+                  value='psn'
+                  platform={platform}
+                  control={<Radio />}
+                  label='PSN'
+                />
+              </RadioGroup>
+            </FormControl>
+          </CardContent>
           {/* Submit Button */}
           <Button
             type='submit'

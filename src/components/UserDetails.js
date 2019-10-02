@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, Fragment } from 'react';
 import R6Context from '../r6Context/R6Context';
-import { Typography, Card, CardContent } from '@material-ui/core';
+import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
 const UserDetails = playerid => {
   const r6context = useContext(R6Context);
@@ -13,20 +13,56 @@ const UserDetails = playerid => {
     fetchData(); // eslint-disable-next-line
   }, []); // I'm having a lot of trouble with dependency array
 
-  if (loading) {
+  if (loading || !user.seasonal) {
     return <div>loading</div>;
   } else {
-    console.log(user);
     return (
       <Fragment>
         <Card>
-          <CardHeader-title>
-            <Typography>{user.p_name}</Typography>
-          </CardHeader-title>
+          <CardHeader title={user.p_name + "'s General Stats"}></CardHeader>
           <CardContent>
             <Typography>Level: {user.p_level}</Typography>
-            <Typography>Kill/Death: {user.kd}</Typography>
+            <Typography>Kill/Death: {user.kd / 100}</Typography>
             <Typography>Platform: {user.p_platform}</Typography>
+            <Typography>
+              Favorite Game Mode: {user.seasonal.favorite_mode}
+            </Typography>
+            <Typography>Bomb Wins: {user.seasonal.bomb_wins}</Typography>
+            <Typography>Bomb Losses: {user.seasonal.bomb_losses}</Typography>
+            <Typography>
+              Secure Area Wins: {user.seasonal.secure_wins}
+            </Typography>
+            <Typography>
+              Secure Area Losses: {user.seasonal.secure_losses}
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader title={user.p_name + "'s Ranked Stats"}></CardHeader>
+          <CardContent>
+            <Typography>Current MMR: {user.seasonal.current_NA_mmr}</Typography>
+            <Typography>
+              Last Season MMR: {user.seasonal.last_NA_mmr}
+            </Typography>
+            <Typography>Kills: {user.seasonal.total_rankedkills}</Typography>
+            <Typography>Deaths: {user.seasonal.total_rankeddeaths}</Typography>
+            <Typography>
+              Total Games: {user.seasonal.total_rankedtotal}
+            </Typography>
+            <Typography>Wins: {user.seasonal.total_rankedwins}</Typography>
+            <Typography>Losses: {user.seasonal.total_rankedlosses}</Typography>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader title={user.p_name + "'s Casual Stats"}></CardHeader>
+          <CardContent>
+            <Typography>Kills: {user.seasonal.total_casualkills}</Typography>
+            <Typography>Deaths: {user.seasonal.total_casualdeaths}</Typography>
+            <Typography>
+              Total Games: {user.seasonal.total_casualtotal}
+            </Typography>
+            <Typography>Wins: {user.seasonal.total_casualwins}</Typography>
+            <Typography>Losses: {user.seasonal.total_casuallosses}</Typography>
           </CardContent>
         </Card>
       </Fragment>
