@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -8,8 +7,16 @@ import {
 } from '../../node_modules/@material-ui/core';
 
 const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
+  const styles = {
+    cardStyle: {
+      width: '15%',
+      textAlign: 'center',
+      margin: '20px'
+    }
+  };
+
   return (
-    <Card>
+    <Card style={styles.cardStyle}>
       <CardHeader-title>
         <Typography>{p_name}</Typography>
       </CardHeader-title>
@@ -19,10 +26,13 @@ const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
           {p_level}
         </Typography>
         <Typography>Platform: {p_platform}</Typography>
-        <Button variant='contained' color='primary'>
-          <Link to={`/user/${p_id}`} p_id={p_id}>
-            Details
-          </Link>
+        <Button
+          variant='contained'
+          color='primary'
+          href={`/user/${p_id}`}
+          p_id={p_id}
+        >
+          Details
         </Button>
       </CardContent>
     </Card>

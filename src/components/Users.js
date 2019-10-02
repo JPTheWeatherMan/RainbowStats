@@ -9,10 +9,13 @@ import R6Context from '../r6Context/R6Context';
 
 const Users = () => {
   const styles = {
-    userItemStyle: {
+    layoutStyle: {
+      width: '60%',
+      margin: '0 auto',
       display: 'flex',
       flexDirection: 'row',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      justifyContent: 'center'
     }
   };
 
@@ -31,11 +34,11 @@ const Users = () => {
     );
   } else {
     return (
-      <Card style={styles.userItemStyle}>
+      <div style={styles.layoutStyle}>
         {users.map(user => (
           <UserItem key={user.p_id} user={user} />
         ))}
-      </Card>
+      </div>
     );
   }
 };

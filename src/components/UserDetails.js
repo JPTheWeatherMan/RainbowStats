@@ -6,6 +6,18 @@ const UserDetails = playerid => {
   const r6context = useContext(R6Context);
   const { user, getUser, loading } = r6context;
 
+  const styles = {
+    layoutStyle: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-around'
+    },
+    cardStyle: {
+      width: '25%',
+      textAlign: 'center'
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       await getUser(playerid);
@@ -17,8 +29,8 @@ const UserDetails = playerid => {
     return <div>loading</div>;
   } else {
     return (
-      <Fragment>
-        <Card>
+      <div style={styles.layoutStyle}>
+        <Card style={styles.cardStyle}>
           <CardHeader title={user.p_name + "'s General Stats"}></CardHeader>
           <CardContent>
             <Typography>Level: {user.p_level}</Typography>
@@ -37,7 +49,7 @@ const UserDetails = playerid => {
             </Typography>
           </CardContent>
         </Card>
-        <Card>
+        <Card style={styles.cardStyle}>
           <CardHeader title={user.p_name + "'s Ranked Stats"}></CardHeader>
           <CardContent>
             <Typography>Current MMR: {user.seasonal.current_NA_mmr}</Typography>
@@ -53,7 +65,7 @@ const UserDetails = playerid => {
             <Typography>Losses: {user.seasonal.total_rankedlosses}</Typography>
           </CardContent>
         </Card>
-        <Card>
+        <Card style={styles.cardStyle}>
           <CardHeader title={user.p_name + "'s Casual Stats"}></CardHeader>
           <CardContent>
             <Typography>Kills: {user.seasonal.total_casualkills}</Typography>
@@ -65,7 +77,7 @@ const UserDetails = playerid => {
             <Typography>Losses: {user.seasonal.total_casuallosses}</Typography>
           </CardContent>
         </Card>
-      </Fragment>
+      </div>
     );
   }
 };

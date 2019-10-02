@@ -18,6 +18,9 @@ const Search = () => {
       width: '60%',
       margin: '0 auto',
       textAlign: 'center'
+    },
+    buttonStyle: {
+      margin: '10px'
     }
   };
 
@@ -98,6 +101,7 @@ const Search = () => {
             color='primary'
             variant='contained'
             value='search'
+            style={styles.buttonStyle}
           >
             Search
           </Button>
