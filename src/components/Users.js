@@ -6,6 +6,7 @@ import {
 } from '../../node_modules/@material-ui/core';
 import UserItem from './UserItem';
 import R6Context from '../r6Context/R6Context';
+import Loader from '../components/Loader';
 
 const Users = () => {
   const styles = {
@@ -24,14 +25,7 @@ const Users = () => {
   const { loading, users } = r6Context;
 
   if (loading) {
-    return (
-      // placeholder
-      <Card>
-        <CardContent>
-          <Typography>loading</Typography>
-        </CardContent>
-      </Card>
-    );
+    return <Loader />;
   } else {
     return (
       <div style={styles.layoutStyle}>

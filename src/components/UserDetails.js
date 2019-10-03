@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import R6Context from '../r6Context/R6Context';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
+import Loader from '../components/Loader';
 
 const UserDetails = playerid => {
   const r6context = useContext(R6Context);
@@ -27,7 +28,7 @@ const UserDetails = playerid => {
   }, []); // I'm having a lot of trouble with dependency array
 
   if (loading || !user.seasonal) {
-    return <div>loading</div>;
+    return <Loader />;
   } else {
     console.log(user.seasonal);
     return (

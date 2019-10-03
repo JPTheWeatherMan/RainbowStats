@@ -7,9 +7,10 @@ const Background = () => {
       position: 'fixed',
       height: '100%',
       width: '100%',
-      zIndex: '-1',
+      zIndex: -1,
       backgroundSize: 'cover',
-      backgroundPosition: 'center center'
+      backgroundPosition: 'cover',
+      opacity: 1
     }
   };
 
