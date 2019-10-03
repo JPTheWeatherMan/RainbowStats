@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect } from 'react';
 import R6Context from '../r6Context/R6Context';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
@@ -10,7 +10,8 @@ const UserDetails = playerid => {
     layoutStyle: {
       width: '100%',
       display: 'flex',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      paddingTop: '20px'
     },
     cardStyle: {
       width: '25%',
@@ -28,6 +29,7 @@ const UserDetails = playerid => {
   if (loading || !user.seasonal) {
     return <div>loading</div>;
   } else {
+    console.log(user.seasonal);
     return (
       <div style={styles.layoutStyle}>
         <Card style={styles.cardStyle}>

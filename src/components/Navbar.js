@@ -9,8 +9,7 @@ const Navbar = () => {
       display: 'flex',
       justifyContent: 'space-around',
       flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: '15px'
+      alignItems: 'center'
     },
     navLinkStyle: {
       width: '15%',
@@ -21,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar style={styles.mainStyle} position='static'>
+    <AppBar style={styles.mainStyle} position='sticky'>
       <h1>JP</h1>
       <ul style={styles.navLinkStyle}>
         <Button variant='contained' size='medium' href='/'>

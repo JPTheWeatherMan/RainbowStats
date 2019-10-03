@@ -16,8 +16,10 @@ const Search = () => {
   const styles = {
     cardStyle: {
       width: '60%',
+      backgroundColor: '#f4f4f4',
       margin: '0 auto',
-      textAlign: 'center'
+      textAlign: 'center',
+      marginTop: '20px'
     },
     buttonStyle: {
       margin: '10px'
