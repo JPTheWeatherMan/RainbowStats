@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   root: {
-    padding: theme.spacing(1),
     [theme.breakpoints.down('md')]: {
       position: 'fixed',
       margin: 'auto',
@@ -12,9 +11,8 @@ const styles = theme => ({
       height: '100%',
       width: 'auto',
       zIndex: -1,
-      backgroundSize: 'center center',
-      backgroundPosition: 'center',
-      opacity: 1,
+      backgroundSize: 'center',
+      backgroundPosition: 'cover',
       overflow: 'hidden'
     },
     [theme.breakpoints.up('md')]: {
@@ -26,7 +24,6 @@ const styles = theme => ({
       zIndex: -1,
       backgroundSize: 'center center',
       backgroundPosition: 'center',
-      opacity: 1,
       overflow: 'hidden'
     }
   }
@@ -45,14 +42,3 @@ const Background = props => {
 };
 
 export default withStyles(styles)(Background);
-
-// backgroundStyle: {
-//   position: 'fixed',
-//   height: 'auto',
-//   width: 'auto',
-//   zIndex: -1,
-//   'background-Size': 'center center',
-//   'background-Position': 'center',
-//   opacity: 1,
-//   overflow: 'hidden'
-// }
