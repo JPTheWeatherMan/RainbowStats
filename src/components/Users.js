@@ -1,9 +1,4 @@
 import React, { useContext } from 'react';
-import {
-  Card,
-  CardContent,
-  Typography
-} from '../../node_modules/@material-ui/core';
 import UserItem from './UserItem';
 import R6Context from '../r6Context/R6Context';
 import Loader from '../components/Loader';
