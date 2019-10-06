@@ -30,14 +30,14 @@ const UserDetails = playerid => {
   if (loading || !user.seasonal) {
     return <Loader />;
   } else {
-    console.log(user.seasonal);
+    console.log(user);
     return (
       <div style={styles.layoutStyle}>
         <Card style={styles.cardStyle}>
           <CardHeader title={user.p_name + "'s General Stats"}></CardHeader>
           <CardContent>
             <Typography>Level: {user.p_level}</Typography>
-            <Typography>Kill/Death: {user.kd / 100}</Typography>
+            <Typography>Win/Loss Ratio: {user.kd / 100}</Typography>
             <Typography>Platform: {user.p_platform}</Typography>
             <Typography>
               Favorite Game Mode: {user.seasonal.favorite_mode}
