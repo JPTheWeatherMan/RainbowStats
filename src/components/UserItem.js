@@ -5,18 +5,29 @@ import {
   CardContent,
   Typography
 } from '../../node_modules/@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
-const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
-  const styles = {
-    cardStyle: {
+const styles = theme => ({
+  root: {
+    [theme.breakpoints.down('md')]: {
+      width: '70%',
+      textAlign: 'center',
+      margin: '20px'
+    },
+    [theme.breakpoints.up('md')]: {
       width: '15%',
       textAlign: 'center',
       margin: '20px'
     }
-  };
+  }
+});
+
+const UserItem = props => {
+  const { p_name, p_level, p_platform, p_id } = props.user;
+  const { classes } = props;
 
   return (
-    <Card style={styles.cardStyle}>
+    <Card className={classes.root}>
       <CardHeader-title>
         <Typography>{p_name}</Typography>
       </CardHeader-title>
@@ -39,4 +50,4 @@ const UserItem = ({ user: { p_name, p_level, p_platform, p_id } }) => {
   );
 };
 
-export default UserItem;
+export default withStyles(styles)(UserItem);
