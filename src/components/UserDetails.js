@@ -2,23 +2,42 @@ import React, { useContext, useEffect } from 'react';
 import R6Context from '../r6Context/R6Context';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 import Loader from '../components/Loader';
+import { withStyles } from '@material-ui/core/styles';
 
-const UserDetails = playerid => {
-  const r6context = useContext(R6Context);
-  const { user, getUser, loading } = r6context;
-
-  const styles = {
-    layoutStyle: {
+const styles = theme => ({
+  layout: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       display: 'flex',
-      justifyContent: 'space-around',
+      flexDirection: 'column',
+      justifyContent: 'center',
       paddingTop: '20px'
     },
-    cardStyle: {
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      paddingTop: '20px'
+    }
+  },
+  card: {
+    [theme.breakpoints.down('md')]: {
+      width: '70%',
+      textAlign: 'center',
+      margin: '20px auto'
+    },
+    [theme.breakpoints.up('md')]: {
       width: '25%',
       textAlign: 'center'
     }
-  };
+  }
+});
+
+const UserDetails = props => {
+  const r6context = useContext(R6Context);
+  const { user, getUser, loading } = r6context;
+  const { playerid, classes } = props;
 
   useEffect(() => {
     async function fetchData() {
@@ -30,10 +49,9 @@ const UserDetails = playerid => {
   if (loading || !user.seasonal) {
     return <Loader />;
   } else {
-    console.log(user);
     return (
-      <div style={styles.layoutStyle}>
-        <Card style={styles.cardStyle}>
+      <div className={classes.layout}>
+        <Card className={classes.card}>
           <CardHeader title={user.p_name + "'s General Stats"}></CardHeader>
           <CardContent>
             <Typography>Level: {user.p_level}</Typography>
@@ -52,7 +70,7 @@ const UserDetails = playerid => {
             </Typography>
           </CardContent>
         </Card>
-        <Card style={styles.cardStyle}>
+        <Card className={classes.card}>
           <CardHeader title={user.p_name + "'s Ranked Stats"}></CardHeader>
           <CardContent>
             <Typography>Current MMR: {user.seasonal.current_NA_mmr}</Typography>
@@ -68,7 +86,7 @@ const UserDetails = playerid => {
             <Typography>Losses: {user.seasonal.total_rankedlosses}</Typography>
           </CardContent>
         </Card>
-        <Card style={styles.cardStyle}>
+        <Card className={classes.card}>
           <CardHeader title={user.p_name + "'s Casual Stats"}></CardHeader>
           <CardContent>
             <Typography>Kills: {user.seasonal.total_casualkills}</Typography>
@@ -85,4 +103,4 @@ const UserDetails = playerid => {
   }
 };
 
-export default UserDetails;
+export default withStyles(styles)(UserDetails);
