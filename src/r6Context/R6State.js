@@ -33,11 +33,11 @@ const R6State = props => {
   };
 
   // Get single user with player id
-  const getUser = async userid => {
+  const getUser = async props => {
     setLoading();
 
     const res = await axios.get(
-      `https://r6tab.com/api/player.php?p_id=${userid.playerid}`
+      `https://r6tab.com/api/player.php?p_id=${props}`
     );
 
     // Conditional for if a player was found or not
