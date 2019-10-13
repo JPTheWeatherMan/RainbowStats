@@ -2,7 +2,13 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import R6Context from './R6Context';
 import R6Reducer from './R6Reducer';
-import { SEARCH_USERS, GET_USER, CLEAR_USERS, SET_LOADING } from './Types';
+import {
+  SEARCH_USERS,
+  GET_USER,
+  CLEAR_USERS,
+  SET_LOADING,
+  CLEAR_LOADING
+} from './Types';
 
 const R6State = props => {
   const initialState = {
@@ -23,6 +29,7 @@ const R6State = props => {
 
     // Conditional for if matching players were found
     if (res.data.totalresults === 0) {
+      clearLoading();
       console.log('No players found');
     } else {
       dispatch({
@@ -47,8 +54,8 @@ const R6State = props => {
         payload: res.data
       });
     } else {
-      // Another place where i need to throw an error
-      console.log('No player found');
+      clearLoading();
+      console.log('No Player Found');
     }
   };
 
@@ -57,6 +64,9 @@ const R6State = props => {
 
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
+
+  // Clear Loading
+  const clearLoading = () => dispatch({ type: CLEAR_LOADING });
 
   return (
     <R6Context.Provider
