@@ -1,1 +1,1 @@
-/user/:userid /user/:userid 301
+/user/* /user/:userid 301
