@@ -15,7 +15,7 @@ const styles = theme => ({
       margin: '20px'
     },
     [theme.breakpoints.up('md')]: {
-      width: '15%',
+      width: '20%',
       textAlign: 'center',
       margin: '20px'
     }

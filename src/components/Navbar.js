@@ -19,7 +19,7 @@ const styles = theme => ({
       justifyContent: 'space-around'
     },
     [theme.breakpoints.up('md')]: {
-      width: '15%',
+      width: '20%',
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-around'
