@@ -8,7 +8,7 @@ const styles = theme => ({
       position: 'fixed',
       margin: 'auto',
       padding: 0,
-      height: 'auto',
+      height: '100vh',
       width: 'auto',
       zIndex: -1,
       backgroundSize: 'center',
