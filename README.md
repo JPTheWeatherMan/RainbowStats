@@ -1,10 +1,22 @@
+## About
+
+This is a simple single page application built with React, Material UI and the @Tabwire Rainbow Six stats API. 
+
 ## Dependencies
 
 Axios
 
-Material UI
+React
 
-React-Router-Dom
+React-dom
+
+react-icons
+
+react-router-dom
+
+react-scripts
+
+react-spinners
 
 ## Available Scripts
 
@@ -25,5 +37,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
