@@ -2,6 +2,8 @@
 
 This is a simple single page application built with React, Material UI and the @Tabwire Rainbow Six stats API. 
 
+You can see this live at https://rainbowsixstats.netlify.com
+
 ## Dependencies
 
 Axios
