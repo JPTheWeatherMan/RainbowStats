@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   root: {
     width: '100%',
-    height: '10vh',
+    height: '5em',
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'row',
@@ -13,13 +13,13 @@ const styles = theme => ({
   },
   navlinks: {
     [theme.breakpoints.down('md')]: {
-      width: '65%',
+      width: '15em',
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-around'
     },
     [theme.breakpoints.up('md')]: {
-      width: '20%',
+      width: '20em',
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-around'
